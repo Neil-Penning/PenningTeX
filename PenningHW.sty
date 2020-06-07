@@ -3,7 +3,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{cancel}
-
+\ProvidesPackage{PenningHW}
 \usepackage{../../PenningTeX/PenningMaster}
 
 \renewcommand{\labelenumi}{\alph{enumi}} %set enumerate to use (a), (b), (c) and so on
@@ -38,6 +38,16 @@
 \noindent\textcolor{gray}{{\large \textbf  \thesubsection}\\\emph{#2}}
 }
 
+%Checked Problem
+\newcommand{\newProblemC}[2][Checked Problem]
+{
+	\refstepcounter{subsection}
+	\addcontentsline{toc}{subsection}{\problemFormatC{\thesubsection\quad #1}}
+	\noindent\problemFormatC{{\large \textbf  \thesubsection}\\#2}
+}
+\newcommand{\problemFormatC}[1]{\textcolor{ForestGreen}{#1}}
+\newcommand{\subProblemC}[1]{\problemFormatC{#1}}
+
 %New problem
 \newcommand{\newProblem}[2][Finished Problem]
 {
@@ -53,14 +63,14 @@
 \newcommand{\newProblemU}[2][Unfinished Problem]
 {
 	\refstepcounter{subsection}
-	\addcontentsline{toc}{subsection}{\problemFormatU{\thesubsection\quad #1}}
+	\addcontentsline{toc}{subsection}{\problemFormatU{\thesubsection\quad Unfinished: #1}}
 	\noindent\problemFormatU{{\large \textbf \thesubsection}\\#2}
 }
 \newcommand{\problemFormatU}[1]{\textcolor{Fuchsia}{#1}}
 \newcommand{\subProblemU}[1]{\problemFormatU{#1}}
 
 
-
+%Optional Problem
 \newcommand{\newProblemO}[2][Optional Problem]
 {
 	\refstepcounter{subsection}
@@ -75,8 +85,9 @@
 
 
 
-\newcommand{\True}{\textcolor{ForestGreen}{True}}
-\newcommand{\False}{\textcolor{red}{False}}
-\newcommand{\Impossible}{\textcolor{red}{Impossible}}
+\newcommand{\True}{\textcolor{OliveGreen}{\textbf{True}}}
+\newcommand{\False}{\textcolor{red}{\textbf{False}}}
+\newcommand{\Impossible}{\textcolor{red}{\textbf{Impossible}}}
+\newcommand{\No}{\textcolor{red}{\textbf{No}}}
 \newcommand{\tr}{\textcolor{ForestGreen}{T}}
 \newcommand{\fl}{\textcolor{red}{F}}

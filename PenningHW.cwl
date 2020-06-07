@@ -14,6 +14,9 @@
 \newProblemO[TOC description]{Optional Problem Text}#L2
 \subProblemO{Optional Problem Text}#L3
 
+\newProblemC[TOC description]{Optional Problem Text}#L2
+\subProblemC{Completed Problem Text}#L3
+
 \newNote{Note Text}
 
 
@@ -21,6 +24,7 @@
 \True
 \False
 \Impossible
+\No
 \tr
 \fl
 \includestandalone[options]{file}#d

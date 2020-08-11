@@ -3,13 +3,14 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{tikz}
 \usepackage{cancel}
-\ProvidesPackage{PenningHW}
+%\ProvidesPackage{PenningHW}
 \usepackage{../../PenningTeX/PenningMaster}
 
 \renewcommand{\labelenumi}{\alph{enumi}} %set enumerate to use (a), (b), (c) and so on
 \renewcommand{\labelenumii}{\roman{enumii}} %set enumerate to use (i), (ii), (iii) and so on
 
 \newcommand{\abs}[1]{\vert #1 \vert}
+
 
 %https://tex.stackexchange.com/questions/512697/how-to-add-custom-counter-to-table-of-contents
 %Command counters that affect subsubsection questions.
@@ -34,7 +35,7 @@
 \newcommand{\testProblem}[2][Test Problem]
 {
 	\refstepcounter{subsection}
-	\addcontentsline{toc}{subsection}{\textcolor{gray}{\thesubsection\quad\emph{#1}}}
+	\addcontentsline{toc}{subsection}{\textcolor{gray}{\thesubsection\ \emph{#1}}}
 \noindent\textcolor{gray}{{\large \textbf  \thesubsection}\\\emph{#2}}
 }
 
@@ -42,7 +43,7 @@
 \newcommand{\newProblemC}[2][Checked Problem]
 {
 	\refstepcounter{subsection}
-	\addcontentsline{toc}{subsection}{\problemFormatC{\thesubsection\quad #1}}
+	\addcontentsline{toc}{subsection}{\problemFormatC{\thesubsection\  #1}}
 	\noindent\problemFormatC{{\large \textbf  \thesubsection}\\#2}
 }
 \newcommand{\problemFormatC}[1]{\textcolor{ForestGreen}{#1}}
@@ -52,7 +53,7 @@
 \newcommand{\newProblem}[2][Finished Problem]
 {
 	\refstepcounter{subsection}
-	\addcontentsline{toc}{subsection}{\problemFormat{\thesubsection\quad #1}}
+	\addcontentsline{toc}{subsection}{\problemFormat{\thesubsection\  #1}}
 	\noindent\problemFormat{{\large \textbf  \thesubsection}\\#2}
 }
 
@@ -63,7 +64,7 @@
 \newcommand{\newProblemU}[2][Unfinished Problem]
 {
 	\refstepcounter{subsection}
-	\addcontentsline{toc}{subsection}{\problemFormatU{\thesubsection\quad Unfinished: #1}}
+	\addcontentsline{toc}{subsection}{\problemFormatU{\thesubsection\ Unfinished: #1}}
 	\noindent\problemFormatU{{\large \textbf \thesubsection}\\#2}
 }
 \newcommand{\problemFormatU}[1]{\textcolor{Fuchsia}{#1}}
@@ -74,11 +75,22 @@
 \newcommand{\newProblemO}[2][Optional Problem]
 {
 	\refstepcounter{subsection}
-	\addcontentsline{toc}{subsection}{\problemFormatO{\thesubsection\quad #1}}
+	\addcontentsline{toc}{subsection}{\problemFormatO{\thesubsection\  #1}}
 	\noindent\problemFormatO{{\large \textbf  \thesubsection}\\#2}
 }
 \newcommand{\problemFormatO}[1]{\textcolor{cyan}{#1}}
 \newcommand{\subProblemO}[1]{\problemFormatO{#1}}
+
+
+%Test Problem
+\newcommand{\newProblemT}[2][Test Problem]
+{
+	\refstepcounter{subsection}
+	\addcontentsline{toc}{subsection}{\problemFormatT{\thesubsection\  #1}}
+	\noindent\problemFormatT{{\large \textbf  \thesubsection}\\#2}
+}
+\newcommand{\problemFormatT}[1]{\textcolor{red}{#1}}
+\newcommand{\subProblemT}[1]{\problemFormatT{#1}}
 
 
 \newcommand{\newNote}[1]{\textcolor{black!60!white}{\emph{#1}}}

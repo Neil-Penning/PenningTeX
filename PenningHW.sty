@@ -16,21 +16,15 @@
 %Command counters that affect subsubsection questions.
 \newcounter{QuestionCount}
 \renewcommand\theQuestionCount{\textcolor{orange}{Question:}}
-\newcommand{\Question}[2][]{
-	\refstepcounter{QuestionCount}
-	\addcontentsline{toc}{subsubsection}{\theQuestionCount\space\textcolor{orange}{#1}}
-	\textcolor{orange}{#2}
-}
+\newcommand{\Question}[2][]{\refstepcounter{QuestionCount}\addcontentsline{toc}{subsubsection}{\theQuestionCount\space\textcolor{orange}{#1}}\textcolor{orange}{#2}}
+%\newcommand{\Question*}[]{
+%	\textcolor{orange}{#2}
+%}
+
 \newcounter{NoteCount}
 \renewcommand\theNoteCount{\textcolor{gray}{Note:}}
-\newcommand{\Note}[2][]{
-	\refstepcounter{NoteCount}
-	\addcontentsline{toc}{subsubsection}{\theNoteCount\space\textcolor{gray}{#1}}
-	\textcolor{gray}{#2}
-}
+\newcommand{\Note}[2][]{\refstepcounter{NoteCount}\addcontentsline{toc}{subsubsection}{\theNoteCount\space\textcolor{gray}{#1}}\textcolor{gray}{#2}}
 
-%Increments section counters
-%creates new section
 
 \newcommand{\testProblem}[2][Test Problem]
 {
@@ -48,6 +42,10 @@
 }
 \newcommand{\problemFormatC}[1]{\textcolor{ForestGreen}{#1}}
 \newcommand{\subProblemC}[1]{\problemFormatC{#1}}
+\newcommand{\newProblemSectionC}[1][Checked Problem]
+{
+	\refstepcounter{subsection}\addcontentsline{toc}{subsection}{\problemFormatC{\thesubsection\quad #1}}\noindent\problemFormatC{{\large \textbf \thesubsection}}
+}
 
 %New problem
 \newcommand{\newProblem}[2][Finished Problem]
@@ -55,6 +53,10 @@
 	\refstepcounter{subsection}
 	\addcontentsline{toc}{subsection}{\problemFormat{\thesubsection\  #1}}
 	\noindent\problemFormat{{\large \textbf  \thesubsection}\\#2}
+}
+\newcommand{\newProblemSection}[1][Finished Problem]
+{
+	\refstepcounter{subsection}\noindent\problemFormat{{\large \textbf \thesubsection}}\addcontentsline{toc}{subsection}{\problemFormat{\thesubsection\quad #1}}
 }
 
 \newcommand{\problemFormat}[1]{\textcolor{blue}{#1}}
@@ -66,6 +68,10 @@
 	\refstepcounter{subsection}
 	\addcontentsline{toc}{subsection}{\problemFormatU{\thesubsection\ Unfinished: #1}}
 	\noindent\problemFormatU{{\large \textbf \thesubsection}\\#2}
+}
+\newcommand{\newProblemSectionU}[1][Unfinished Problem]
+{
+	\refstepcounter{subsection}\noindent\problemFormatU{{\large \textbf \thesubsection}}\addcontentsline{toc}{subsection}{\problemFormatU{\thesubsection\quad #1}}
 }
 \newcommand{\problemFormatU}[1]{\textcolor{Fuchsia}{#1}}
 \newcommand{\subProblemU}[1]{\problemFormatU{#1}}
@@ -80,6 +86,10 @@
 }
 \newcommand{\problemFormatO}[1]{\textcolor{cyan}{#1}}
 \newcommand{\subProblemO}[1]{\problemFormatO{#1}}
+\newcommand{\newProblemSectionO}[1][Optional Problem]
+{
+	\refstepcounter{subsection}\noindent\subProblemO{{\large \textbf \thesubsection}}\addcontentsline{toc}{subsection}{\subProblemO{\thesubsection\quad #1}}
+}
 
 
 %Test Problem

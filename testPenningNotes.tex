@@ -1,5 +1,7 @@
 \documentclass{article}
+\usepackage[a4paper, total={7.5in, 10.5in}]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage{PenningMaster}
 \usepackage{PenningNotes}
 
 
@@ -16,67 +18,98 @@
 \tableofcontents
 \section{Introduction}
 \subsection{test}
-\begin{boxDefinition}{The def of something}
-Introduce a new concept abc
+%[Options]{#2 = Title Name, #3 = Color, #4 = Box Type}
+\begin{boxDefinition}[lower separated = true, sidebyside=true, label=something]{Something Else}
+testing
 \tcblower
-Here you explain the concept
 \end{boxDefinition}
+\begin{boxNote}[]{Something Else}
+We can reference other things \ref{something}
+\end{boxNote}
+\begin{boxProblem}[]{Something Else}
+testing
+\end{boxProblem}
+\begin{boxTheorem}[lower separated = true, sidebyside=true]{A complicated Theorem}
+    \begin{boxDefinition}{first}
+        other?
+    \end{boxDefinition}
+    \begin{boxDefinition}{second}
+        other?
+    \end{boxDefinition}
+    \begin{boxDefinition}{third}
+        other?
+    \end{boxDefinition}
+    \tcblower
+    Now we explain the theorem in terms of definitions
+    \vspace{1.5in}
+    \begin{boxNote}{Important}
+        Now, don't confuse this concept with Definition 1.1
+    \end{boxNote}
+\end{boxTheorem}
+%\begin{boxDefinition}{The def of something}
+%Introduce a new concept abc
+%\tcblower
+%Here you explain the concept
+%\end{boxDefinition}
 
 	
 
 
-\begin{boxProblem}{Does The Flint Hills series Converge?}
-$\sum_{n=1}^\infty\frac{1}{n^3 * sin^2(n)}$
-\tcblower
-This one has actually been left as an exercise to the writer.
-\end{boxProblem}
-
-\begin{boxNote}{remember to remember!}
-What am I to remember? Oh! That I forgot something!
-\end{boxNote}
-\begin{boxMethod}[sidebyside=true]{How to do something}
-    listen up youngins
-\end{boxMethod}
-
-\begin{boxGuidedProblem}{Solve $y''+5y'+6y$ equals zero}
-        \begin{tabular}{l|rl}
-            Write Characteristic & $0$ &$= r^2 + 5r + 6$ \\
-            &&$=(r+2)(r+3)$\\
-            \\
-            Solve for $r_1,r_2$&$r_1$&$=-3$\\
-            &$r_2$&$=-2$ \\
-            \\
-            Write General Solution&$y$ &$=C_1e^{-3t} + C_2e^{-2t}$\\
-        \end{tabular}
-    \end{boxGuidedProblem}
-
-\begin{boxDerivation}{definition within a box}
-\begin{boxDefinition}{}
-This is a concept
-\tcblower
-this is it's explanation
-$\NN \QQ \ZZ$
-\end{boxDefinition}
-\tcblower
-this is its derivation
-\end{boxDerivation}
-
-
-\begin{boxDefinition}[sidebyside = false]{Test}
-
-one two three
-
-\end{boxDefinition}
-\begin{boxDefinition*}{Un numbered definition}
-An unnumbered definition
-\end{boxDefinition*}
-
-\begin{boxProof}{$(\forall n\geq 3)(n\in Z)(x^n + y^n \neq z^n)$}
-    This exercise is trivial and left as an exercise to the reader
-\end{boxProof}
-
-\begin{boxProof}{{$(\exists n\in Z)(x^2 + y^2$ = $z^2)$}}
-    This deceptively simple lemma has been unsolved for millennia. Don't bother attempting.
-\end{boxProof}
+%\begin{boxProblem}{Does The Flint Hills series Converge?}
+%$\sum_{n=1}^\infty\frac{1}{n^3 * sin^2(n)}$
+%\tcblower
+%This one has actually been left as an exercise to the writer.
+%\end{boxProblem}
+%
+%\begin{boxNote}{remember to remember!}
+%What am I to remember? Oh! That I forgot something!
+%\end{boxNote}
+%\begin{boxMethod}[sidebyside=true]{How to do something}
+%    listen up youngins
+%\end{boxMethod}
+%
+%\begin{boxGuidedProblem}{Solve $y''+5y'+6y$ equals zero}
+%        \begin{tabular}{l|rl}
+%            Write Characteristic & $0$ &$= r^2 + 5r + 6$ \\
+%            &&$=(r+2)(r+3)$\\
+%            \\
+%            Solve for $r_1,r_2$&$r_1$&$=-3$\\
+%            &$r_2$&$=-2$ \\
+%            \\
+%            Write General Solution&$y$ &$=C_1e^{-3t} + C_2e^{-2t}$\\
+%        \end{tabular}
+%    \end{boxGuidedProblem}
+%
+%\begin{boxDerivation}{definition within a box}
+%\begin{boxDefinition}{}
+%This is a concept
+%\tcblower
+%this is it's explanation
+%$\NN \QQ \ZZ$
+%\end{boxDefinition}
+%\tcblower
+%this is its derivation
+%\end{boxDerivation}
+%
+%
+%\begin{boxDefinition}[sidebyside = false]{Test}
+%
+%one two three
+%
+%\end{boxDefinition}
+%\begin{boxDefinition*}{Un numbered definition}
+%An unnumbered definition
+%\end{boxDefinition*}
+%
+%\begin{boxProof}{$(\forall n\geq 3)(n\in Z)(x^n + y^n \neq z^n)$}
+%    This exercise is trivial and left as an exercise to the reader
+%\end{boxProof}
+%
+%\begin{boxProof}{{$(\exists n\in Z)(x^2 + y^2$ = $z^2)$}}
+%    This deceptively simple lemma has been unsolved for millennia. Don't bother attempting.
+%\end{boxProof}
+%\begin{boxDerivation}
+%Deriving something
+%\end{boxDerivation}
 \end{document}
 

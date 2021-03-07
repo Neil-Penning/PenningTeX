@@ -4,3 +4,6 @@
 *.aux
 *.out
 *.synctex.gz
+
+*.fls
+*.fdb*

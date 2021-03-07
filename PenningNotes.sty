@@ -15,7 +15,7 @@
 
 
 %[Options]{#2 = Box Type, #3 = Title Name, #4 = Color,}
-\newtcolorbox[auto counter,number within=section]{basicBox}[4][]
+\newtcolorbox[auto counter,number within=chapter]{basicBox}[4][]
 {
 	colback=#4!5!white,
 	colframe=#4!75!black,
@@ -41,6 +41,10 @@
 
 \newenvironment{boxTheorem}[2][]
 { \begin{basicBox}[#1]{Theorem}{#2}{YellowOrange}}
+{ \end{basicBox} }
+
+\newenvironment{boxConcept}[2][]
+{ \begin{basicBox}[#1]{Concept}{#2}{blue}}
 { \end{basicBox} }
 
 %\newtcolorbox{boxMethod}[2][sidebyside=false]{

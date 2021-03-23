@@ -3,10 +3,13 @@
 	amsthm,		%For \begin{proof}
 	amsfonts,	%For mathbb mathbf
 	amssymb,	%For Various Symbols
-	upgreek,	%For \upphi
-	soul		%For colored underline
+	upgreek		%For \upphi
 }
 %\ProvidesPackage{PenningMaster}
+
+% For color underlining
+% From https://tex.stackexchange.com/questions/9466/color-underline-a-formula
+\def\cul#1#2{\color{#1}\underline{{\color{black}#2}}\color{black}}
 
 \newcommand{\ihat}{\hat{\textbf{\i}}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}

@@ -121,37 +121,17 @@
 
 
 
-\colorlet{unfinishedcol}   {Fuchsia}
-\colorlet{finishedcol}     {blue}
-\colorlet{optionalcol}     {Cyan}
-\colorlet{checkedcol}      {ForestGreen}
+\colorlet{UNFINISHED}            {Fuchsia}
+\colorlet{FINISHED}              {blue}
+\colorlet{OPTIONAL}              {Cyan}
+%\colorlet{optional_finished}     {Cyan}
+\colorlet{CHECKED}               {ForestGreen}
 
 
-
-\newenvironment{newProblemU}[2][]
-{ \begin{newProblemBLANK}{unfinishedcol}{#2}}
+\newenvironment{newProblem}[2][FINISHED]
+{ \begin{newProblemBLANK}{#1}{#2}}
 { \end{newProblemBLANK} }
-\newenvironment{newInlineProblemU}[2][]
-{ \begin{newInlineProblemBLANK}{unfinishedcol}{#2}}
-{ \end{newInlineProblemBLANK} }
 
-\newenvironment{newProblem}[2][]
-{ \begin{newProblemBLANK}{finishedcol}{#2}}
-{ \end{newProblemBLANK} }
-\newenvironment{newInlineProblem}[2][]
-{ \begin{newInlineProblemBLANK}{finishedcol}{#2}}
-{ \end{newInlineProblemBLANK} }
-
-\newenvironment{newProblemO}[2][]
-{ \begin{newProblemBLANK}{optionalcol}{#2}}
-{ \end{newProblemBLANK} }
-\newenvironment{newInlineProblemO}[2][]
-{ \begin{newInlineProblemBLANK}{optionalcol}{#2}}
-{ \end{newInlineProblemBLANK} }
-
-\newenvironment{newProblemC}[2][]
-{ \begin{newProblemBLANK}{checkedcol}{#2}}
-{ \end{newProblemBLANK} }
-\newenvironment{newInlineProblemC}[2][]
-{ \begin{newInlineProblemBLANK}{checkedcol}{#2}}
+\newenvironment{newInlineProblem}[2][FINISHED]
+{ \begin{newInlineProblemBLANK}{#1}{#2}}
 { \end{newInlineProblemBLANK} }

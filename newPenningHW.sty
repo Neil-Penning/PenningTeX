@@ -1,0 +1,105 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{PenningNotes, tcolorbox, xcolor, amsfonts, amsthm, amsmath, physics}
+
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage[breakable, skins]{tcolorbox}
+\RequirePackage{physics}
+\RequirePackage{amssymb}
+
+%\newcommand{\abs}[1]{\left|#1\right|}
+%\newcommand{\norm}[1]{\lVert#1\rVert}
+
+% Make ref footnote based on:
+% https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
+
+%[Options]{#2 = Box Type, #3 = Title Name, #4 = Color,}
+\newtcolorbox{basicBox}[4][]
+{
+	colback=#4!5!white,
+	colframe=#4!75!black,
+	%colupper=#4!50!black,
+	fonttitle=\bfseries,
+	rounded corners = all,
+	breakable,
+	title=#3,
+	#1
+	}
+
+% [#1 = options]{#2 = title}
+\newenvironment{boxDefinition}[2][]
+{ \begin{basicBox}[#1, colupper=red]{Definition}{#2}{ForestGreen}}
+{ \end{basicBox} }
+
+\newenvironment{boxNote}[2][]
+{ \begin{basicBox}[#1]{Note}{#2}{gray}}
+{ \end{basicBox} }
+
+%%
+%%
+%%
+%%
+%%
+%%
+\usepackage{lipsum}
+\newcounter{example}
+\colorlet{colexam}{red!75!black}
+\colorlet{unfinishedcol}   {Fuchsia}
+\colorlet{finishedcol}     {blue}
+\colorlet{optionalcol}     {Cyan}
+\colorlet{checkedcol}      {green}
+\newtcolorbox[]{myexample}[2]{%
+	empty,
+	title= #2,
+	%detach title,
+	attach boxed title to top left,
+	boxed title style={
+		empty,
+		size=minimal,
+		toprule=2pt,
+		top=4pt,
+		bottom=4pt,
+		%overlay={
+		%	\draw
+		%		[#1,line width=2pt]
+		%		([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);
+		%	}
+	},
+	coltitle=#1,
+	colupper=#1,
+	fonttitle=\Large\bfseries,
+	before=\par\medskip\noindent,
+	parbox=false,
+	boxsep=0pt,
+	left=0pt,
+	right=3mm,
+	top=4pt,
+	breakable,
+	pad at break*=0mm,
+	vfill before first,
+	%overlay unbroken={
+	%	\draw
+	%		[#1,line width=1pt]
+	%		([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+	%		--([xshift=-0.5pt]frame.south east)--(frame.south west); 
+	%},
+	overlay first={
+		\draw
+			[#1,line width=1pt]
+			([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+			--([xshift=-0.5pt]frame.south east); 
+		},
+	overlay middle={
+		\draw
+			[#1,line width=1pt]
+			([xshift=-0.5pt]frame.north east)
+			--([xshift=-0.5pt]frame.south east); 
+	},
+	overlay last={
+		\draw[#1,line width=1pt] ([xshift=-0.5pt]frame.north east)
+		--([xshift=-0.5pt]frame.south east)--(frame.south west);
+	},%
+}

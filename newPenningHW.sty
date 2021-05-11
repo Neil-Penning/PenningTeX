@@ -16,42 +16,14 @@
 % Make ref footnote based on:
 % https://tex.stackexchange.com/questions/30720/footnote-without-a-marker
 
-%[Options]{#2 = Box Type, #3 = Title Name, #4 = Color,}
-\newtcolorbox{basicBox}[4][]
-{
-	colback=#4!5!white,
-	colframe=#4!75!black,
-	%colupper=#4!50!black,
-	fonttitle=\bfseries,
-	rounded corners = all,
-	breakable,
-	title=#3,
-	#1
-	}
-
-% [#1 = options]{#2 = title}
-\newenvironment{boxDefinition}[2][]
-{ \begin{basicBox}[#1, colupper=red]{Definition}{#2}{ForestGreen}}
-{ \end{basicBox} }
-
-\newenvironment{boxNote}[2][]
-{ \begin{basicBox}[#1]{Note}{#2}{gray}}
-{ \end{basicBox} }
-
-%%
-%%
-%%
-%%
-%%
-%%
 \usepackage{lipsum}
-\newcounter{example}
 \colorlet{colexam}{red!75!black}
-\colorlet{unfinishedcol}   {Fuchsia}
-\colorlet{finishedcol}     {blue}
-\colorlet{optionalcol}     {Cyan}
-\colorlet{checkedcol}      {green}
-\newtcolorbox[]{myexample}[2]{%
+
+
+
+
+
+\newtcolorbox[]{newProblemBLANK}[2]{% 1 = color; 2 = title
 	empty,
 	title= #2,
 	%detach title,
@@ -103,3 +75,31 @@
 		--([xshift=-0.5pt]frame.south east)--(frame.south west);
 	},%
 }
+
+
+
+
+
+
+\colorlet{unfinishedcol}   {Fuchsia}
+\colorlet{finishedcol}     {blue}
+\colorlet{optionalcol}     {Cyan}
+\colorlet{checkedcol}      {green}
+
+
+
+\newenvironment{newProblemU}[2][]
+{ \begin{newProblemBLANK}{unfinishedcol}{#2}}
+{ \end{newProblemBLANK} }
+
+\newenvironment{newProblem}[2][]
+{ \begin{newProblemBLANK}{finishedcol}{#2}}
+{ \end{newProblemBLANK} }
+
+\newenvironment{newProblemO}[2][]
+{ \begin{newProblemBLANK}{optionalcol}{#2}}
+{ \end{newProblemBLANK} }
+
+\newenvironment{newProblemC}[2][]
+{ \begin{newProblemBLANK}{checkedcol}{#2}}
+{ \end{newProblemBLANK} }

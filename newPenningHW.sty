@@ -80,25 +80,25 @@
 	breakable,
 	pad at break*=0mm,
 	vfill before first,
-	%overlay unbroken={
-	%	\draw
-	%		[#1,line width=1pt]
-	%		([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
-	%		--([xshift=-0.5pt]frame.south east)--(frame.south west); 
-	%},
+	overlay unbroken={ %add if unbroken
+		\draw
+			[#1,line width=1pt]
+			([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+			--([xshift=-0.5pt]frame.south east)--(frame.south west); 
+	},
 	overlay first={
 		\draw
 			[#1,line width=1pt]
-			([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+			([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
 			--([xshift=-0.5pt]frame.south east); 
 		},
-	overlay middle={
+	overlay middle={ %to be added to middle parts of broken sequence
 		\draw
 			[#1,line width=1pt]
 			([xshift=-0.5pt]frame.north east)
 			--([xshift=-0.5pt]frame.south east); 
 	},
-	overlay last={
+	overlay last={ %add to last part of broken sequence
 		\draw[#1,line width=1pt] ([xshift=-0.5pt]frame.north east)
 		--([xshift=-0.5pt]frame.south east)--(frame.south west);
 	},%

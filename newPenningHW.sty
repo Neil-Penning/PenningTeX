@@ -77,6 +77,46 @@
 }
 
 
+\newtcolorbox[]{newInlineProblemBLANK}[2]{% 1 = color; 2 = title
+	empty,
+	title= #2,
+	attach title to upper,
+	after title =\ \ ,
+	coltitle=#1,
+	colupper=#1,
+	fonttitle=\normalsize\bfseries,
+	before=\par\medskip\noindent,
+	parbox=false,
+	boxsep=0pt,
+	left=0pt,
+	right=3mm,
+	top=4pt,
+	breakable,
+	pad at break*=0mm,
+	vfill before first,
+	overlay unbroken={ %add if unbroken
+		\draw
+			[#1,line width=1pt]
+			([xshift=-0.5pt,yshift=-1pt]frame.north east)
+			--([xshift=-0.5pt]frame.south east)--(frame.south west); 
+	},
+	overlay first={
+		\draw
+			[#1,line width=1pt]
+			([xshift=-0.5pt,yshift=-1pt]frame. north east)
+			--([xshift=-0.5pt]frame.south east); 
+		},
+	overlay middle={ %to be added to middle parts of broken sequence
+		\draw
+			[#1,line width=1pt]
+			([xshift=-0.5pt]frame.north east)
+			--([xshift=-0.5pt]frame.south east); 
+	},
+	overlay last={ %add to last part of broken sequence
+		\draw[#1,line width=1pt] ([xshift=-0.5pt]frame.north east)
+		--([xshift=-0.5pt]frame.south east)--(frame.south west);
+	},%
+}
 
 
 
@@ -84,22 +124,34 @@
 \colorlet{unfinishedcol}   {Fuchsia}
 \colorlet{finishedcol}     {blue}
 \colorlet{optionalcol}     {Cyan}
-\colorlet{checkedcol}      {green}
+\colorlet{checkedcol}      {ForestGreen}
 
 
 
 \newenvironment{newProblemU}[2][]
 { \begin{newProblemBLANK}{unfinishedcol}{#2}}
 { \end{newProblemBLANK} }
+\newenvironment{newInlineProblemU}[2][]
+{ \begin{newInlineProblemBLANK}{unfinishedcol}{#2}}
+{ \end{newInlineProblemBLANK} }
 
 \newenvironment{newProblem}[2][]
 { \begin{newProblemBLANK}{finishedcol}{#2}}
 { \end{newProblemBLANK} }
+\newenvironment{newInlineProblem}[2][]
+{ \begin{newInlineProblemBLANK}{finishedcol}{#2}}
+{ \end{newInlineProblemBLANK} }
 
 \newenvironment{newProblemO}[2][]
 { \begin{newProblemBLANK}{optionalcol}{#2}}
 { \end{newProblemBLANK} }
+\newenvironment{newInlineProblemO}[2][]
+{ \begin{newInlineProblemBLANK}{optionalcol}{#2}}
+{ \end{newInlineProblemBLANK} }
 
 \newenvironment{newProblemC}[2][]
 { \begin{newProblemBLANK}{checkedcol}{#2}}
 { \end{newProblemBLANK} }
+\newenvironment{newInlineProblemC}[2][]
+{ \begin{newInlineProblemBLANK}{checkedcol}{#2}}
+{ \end{newInlineProblemBLANK} }

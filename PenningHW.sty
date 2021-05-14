@@ -32,6 +32,45 @@
 \newcommand{\handwritteninlinecmd}{}
 \newcommand{\handwrittenlowervisible}{visible}
 
+
+
+\newcommand{\defaultoverlayunbroken}[1]{ %add if unbroken
+	\draw
+		[#1,line width=1pt]
+		(frame.north east)
+		--
+		(frame.south east)
+		--
+		(frame.south west); 
+}
+\newcommand{\defaultoverlayfirst}[1]{
+	\draw
+		[#1,line width=1pt]
+		(frame.north east)
+		--
+		(frame.south east); 
+}
+\newcommand{\defaultoverlaymiddle}[1]{ %to be added to middle parts of broken sequence
+	\draw
+		[#1,line width=1pt]
+		(frame.north east)
+		--
+		(frame.south east); 
+}
+\newcommand{\defaultoverlaylast}[1]{ %add to last part of broken sequence
+	\draw
+		[#1,line width=1pt]
+		(frame.north east)
+		--
+		(frame.south east)
+		--
+		(frame.south west);
+}
+% \defaultoverlayunbroken
+% \defaultoverlayfirst
+% \defaultoverlaymiddle
+% \defaultoverlaylast
+
 %run the following commands if the user passes "handwritten"
 \DeclareOption{handwritten}
 { 
@@ -48,6 +87,13 @@
 	\colorlet{OPTIONAL}              {Cyan}
 	\colorlet{OPTIONALFINISHED}      {blue}
 	\colorlet{CHECKED}               {blue}
+
+	
+	%do not draw border in handwritten mode
+	\renewcommand{\defaultoverlayunbroken}[1]{}
+	\renewcommand{\defaultoverlayfirst}[1]{}
+	\renewcommand{\defaultoverlaymiddle}[1]{}
+	\renewcommand{\defaultoverlaylast}[1]{}
 }
 
 \ProcessOptions\relax
@@ -60,17 +106,12 @@
 	title= #2,
 	%detach title,
 	attach boxed title to top left,
-	boxed title style={
+	boxed title style={ %draw title style
 		empty,
 		size=minimal,
 		toprule=2pt,
 		top=4pt,
 		bottom=4pt,
-		%overlay={
-		%	\draw
-		%		[#1,line width=2pt]
-		%		([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);
-		%	}
 	},
 	coltitle=#1,
 	colupper=#1,
@@ -84,28 +125,13 @@
 	breakable,
 	pad at break*=0mm,
 	vfill before first,
-	overlay unbroken={ %add if unbroken
-		\draw
-			[#1,line width=1pt]
-			([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
-			--([xshift=-0.5pt]frame.south east)--(frame.south west); 
-	},
-	overlay first={
-		\draw
-			[#1,line width=1pt]
-			([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
-			--([xshift=-0.5pt]frame.south east); 
-		},
-	overlay middle={ %to be added to middle parts of broken sequence
-		\draw
-			[#1,line width=1pt]
-			([xshift=-0.5pt]frame.north east)
-			--([xshift=-0.5pt]frame.south east); 
-	},
-	overlay last={ %add to last part of broken sequence
-		\draw[#1,line width=1pt] ([xshift=-0.5pt]frame.north east)
-		--([xshift=-0.5pt]frame.south east)--(frame.south west);
-	},%
+	%
+	% draw box border
+	overlay unbroken=\defaultoverlayunbroken{#1},
+	overlay first=\defaultoverlayfirst{#1},
+	overlay middle=\defaultoverlaymiddle{#1},
+	overlay last=\defaultoverlaylast{#1},
+	%	
 	nobeforeafter, % clear "after " command
 	after = {\handwrittencmd} %run handwritten command defined earlier
 }
@@ -129,28 +155,13 @@
 	breakable,
 	pad at break*=0mm,
 	vfill before first,
-	overlay unbroken={ %add if unbroken
-		\draw
-			[#1,line width=1pt]
-			([xshift=-0.5pt,yshift=-1pt]frame.north east)
-			--([xshift=-0.5pt]frame.south east)--(frame.south west); 
-	},
-	overlay first={
-		\draw
-			[#1,line width=1pt]
-			([xshift=-0.5pt,yshift=-1pt]frame. north east)
-			--([xshift=-0.5pt]frame.south east); 
-		},
-	overlay middle={ %to be added to middle parts of broken sequence
-		\draw
-			[#1,line width=1pt]
-			([xshift=-0.5pt]frame.north east)
-			--([xshift=-0.5pt]frame.south east); 
-	},
-	overlay last={ %add to last part of broken sequence
-		\draw[#1,line width=1pt] ([xshift=-0.5pt]frame.north east)
-		--([xshift=-0.5pt]frame.south east)--(frame.south west);
-	},%
+	%
+	% draw box border
+	overlay unbroken=\defaultoverlayunbroken{#1},
+	overlay first=\defaultoverlayfirst{#1},
+	overlay middle=\defaultoverlaymiddle{#1},
+	overlay last=\defaultoverlaylast{#1},
+	%
 	nobeforeafter, % clear "after" command
 	after = {\handwritteninlinecmd} %run handwritten command defined earlier
 }

@@ -1,6 +1,5 @@
-
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{PenningNotes, tcolorbox, xcolor, amsfonts, amsthm, amsmath, physics}
+\ProvidesPackage{PenningNotes}
 
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
@@ -20,11 +19,44 @@
 \colorlet{colexam}{red!75!black}
 
 
+%Define commands for the user to pass
+\colorlet{UNFINISHED}            {Fuchsia}
+\colorlet{FINISHED}              {blue}
+\colorlet{OPTIONAL}              {Cyan}
+\colorlet{OPTIONALFINISHED}      {blue}
+\colorlet{CHECKED}               {ForestGreen}
+
+
+% by default, make the handwritten command blank
+\newcommand{\handwrittencmd}{}
+\newcommand{\handwritteninlinecmd}{}
+\newcommand{\handwrittenlowervisible}{visible}
+
+%run the following commands if the user passes "handwritten"
+\DeclareOption{handwritten}
+{ 
+	%Add a new page after each "main problem"
+	\renewcommand{\handwrittencmd}{\newpage\relax}
+	% add space after each inline part
+	\renewcommand{\handwritteninlinecmd}{\vspace{4in}}
+	% Do not write any current work
+	\renewcommand{\handwrittenlowervisible}{ignored}
+
+	% Change all problem colors to blue (keep optional problems labeled.)
+	\colorlet{UNFINISHED}            {blue}
+	\colorlet{FINISHED}              {blue}
+	\colorlet{OPTIONAL}              {Cyan}
+	\colorlet{OPTIONALFINISHED}      {blue}
+	\colorlet{CHECKED}               {blue}
+}
+
+\ProcessOptions\relax
 
 
 
 \newtcolorbox[]{newProblemBLANK}[2]{% 1 = color; 2 = title
 	empty,
+	lowerbox = \handwrittenlowervisible, % hide if in handwritten mode
 	title= #2,
 	%detach title,
 	attach boxed title to top left,
@@ -74,12 +106,15 @@
 		\draw[#1,line width=1pt] ([xshift=-0.5pt]frame.north east)
 		--([xshift=-0.5pt]frame.south east)--(frame.south west);
 	},%
+	nobeforeafter, % clear "after " command
+	after = {\handwrittencmd} %run handwritten command defined earlier
 }
 
 
 \newtcolorbox[]{newInlineProblemBLANK}[2]{% 1 = color; 2 = title
 	empty,
 	title= #2,
+	lowerbox = \handwrittenlowervisible, % hide if in handwritten mode
 	attach title to upper,
 	after title =\ \ ,
 	coltitle=#1,
@@ -116,16 +151,13 @@
 		\draw[#1,line width=1pt] ([xshift=-0.5pt]frame.north east)
 		--([xshift=-0.5pt]frame.south east)--(frame.south west);
 	},%
+	nobeforeafter, % clear "after" command
+	after = {\handwritteninlinecmd} %run handwritten command defined earlier
 }
 
 
 
 
-\colorlet{UNFINISHED}            {Fuchsia}
-\colorlet{FINISHED}              {blue}
-\colorlet{OPTIONAL}              {Cyan}
-\colorlet{OPTIONALFINISHED}      {blue}
-\colorlet{CHECKED}               {ForestGreen}
 
 
 \newenvironment{newProblem}[2][FINISHED]

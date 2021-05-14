@@ -116,7 +116,6 @@
 	coltitle=#1,
 	colupper=#1,
 	fonttitle=\Large\bfseries,
-	before=\par\medskip\noindent,
 	parbox=false,
 	boxsep=0pt,
 	left=0pt,
@@ -133,6 +132,7 @@
 	overlay last=\defaultoverlaylast{#1},
 	%	
 	nobeforeafter, % clear "after " command
+	before=\par\medskip\noindent,
 	after = {\handwrittencmd} %run handwritten command defined earlier
 }
 
@@ -146,7 +146,6 @@
 	coltitle=#1,
 	colupper=#1,
 	fonttitle=\normalsize\bfseries,
-	before=\par\medskip\noindent,
 	parbox=false,
 	boxsep=0pt,
 	left=0pt,
@@ -163,6 +162,7 @@
 	overlay last=\defaultoverlaylast{#1},
 	%
 	nobeforeafter, % clear "after" command
+	before=\par\medskip\noindent,
 	after = {\handwritteninlinecmd} %run handwritten command defined earlier
 }
 

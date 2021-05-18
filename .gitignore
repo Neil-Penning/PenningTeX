@@ -8,3 +8,5 @@
 *.fls
 *.fdb*
 testPenningNotes.pdf
+
+*.swp

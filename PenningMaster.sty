@@ -5,6 +5,8 @@
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 \newcommand{\khat}{\hat{\textbf{\j}}}
 
+\renewcommand{\labelitemii}{\textasteriskcentered}
+
 % Add common Sets
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -13,7 +15,6 @@
 \newcommand{\CC}{\mathbb{C}}
 
 % Add Powerset notations
-\newcommand{\Pw}[1]{\mathcal{P}(#1)}
 \newcommand{\Pp}{\mathcal{P}} 
 
 % Add new operators
@@ -24,10 +25,11 @@
 \newcommand{\then}{\rightarrow}
 
 % Add Set properties
-\newcommand{\Dom}[1]{\text{Dom}(#1)}
-\newcommand{\Codom}[1]{\text{Codom}(#1)}
-\newcommand{\Range}[1]{\text{Range}(#1)}
-\newcommand{\Card}[1]{\text{Card}(#1)}
+\newcommand{\Dom}{\operatorname{Dom}}
+\newcommand{\Codom}{\operatorname{Codom}}
+\newcommand{\Range}{\operatorname{Range}}
+\newcommand{\Card}{\operatorname{Card}}
+\newcommand{\card}[1]{\left\vert#1\right\vert}
 
 % Set Theory Stuff
 \newcommand{\rr}{\mathbf r}
@@ -69,3 +71,8 @@
 \newcommand{\threethree}[9]{\begin{array}{ccc}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{array}}
 \newcommand{\vtwo}[2]{\begin{array}{ccc}#1\\#2\end{array}}
 \newcommand{\vthree}[3]{\begin{array}{ccc}#1\\#2\\#3\end{array}}
+\newcommand{\ord}{\operatorname{ord}}
+
+% 4317 Stuff
+\newcommand{\Sup}{\operatorname{Sup}}
+\newcommand{\Inf}{\operatorname{Inf}}

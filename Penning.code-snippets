@@ -1,0 +1,10 @@
+{
+"boxDefinition": {
+        "prefix": ["bdef", "@def"],
+        "body": [
+            "\\begin{boxDefintion}[]{$0}",
+            "\t$1",
+            "\\end{definition}"
+        ],
+    },
+}

@@ -28,6 +28,16 @@
 	#1
 	}
 
+%\definecolor{DefinitionColor}   {RGB}{} % ForestGreen
+%\definecolor{NoteColor}         {RGB}{} % gray
+\definecolor{ProblemColor}       {RGB}{233,93,93}
+%\definecolor{TheoremColor}      {RGB}{} % YellowOrange
+%\definecolor{ConceptColor}      {RGB}{0,47,108} % 0, 47, 108
+%\definecolor{ExampleColor}      {RGB}{} % Plum
+%\definecolor{TODOColor}         {RGB}{}    % WildStrawberry
+
+\definecolor{ConceptColor}{RGB}{107,139,255}
+
 % [#1 = options]{#2 = title}
 \newenvironment{boxDefinition}[2][]
 { \begin{basicBox}[#1]{Definition}{#2}{ForestGreen}}
@@ -38,15 +48,16 @@
 { \end{basicBox} }
 
 \newenvironment{boxProblem}[2][]
-{ \begin{basicBox}[#1]{Problem}{#2}{violet}}
+{ \begin{basicBox}[#1]{Problem}{#2}{ProblemColor}}
 { \end{basicBox} }
 
 \newenvironment{boxTheorem}[2][]
 { \begin{basicBox}[#1]{Theorem}{#2}{YellowOrange}}
 { \end{basicBox} }
 
+
 \newenvironment{boxConcept}[2][]
-{ \begin{basicBox}[#1]{Concept}{#2}{blue}}
+{ \begin{basicBox}[#1]{Concept}{#2}{ConceptColor}}
 { \end{basicBox} }
 
 \newenvironment{boxExample}[2][]
@@ -55,4 +66,8 @@
 
 \newenvironment{boxTODO}[2][]
 { \begin{basicBox}[#1]{TODO}{#2}{WildStrawberry}}
+{ \end{basicBox} }
+
+\newenvironment{boxQuote}[2][]
+{ \begin{basicBox}[#1]{Quote}{#2}{WildStrawberry}}
 { \end{basicBox} }

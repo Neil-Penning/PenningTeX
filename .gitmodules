@@ -1,0 +1,12 @@
+[submodule "PenningTeX-macros"]
+	path = PenningTeX-macros
+	url = git@github.com:Neil-Penning/PenningTeX-macros.git
+[submodule "PenningTeX-hw"]
+	path = PenningTeX-hw
+	url = git@github.com:Neil-Penning/PenningTeX-hw.git
+[submodule "PenningTeX-notes"]
+	path = PenningTeX-notes
+	url = git@github.com:Neil-Penning/PenningTeX-notes.git
+[submodule "PenningTex-hw"]
+	path = PenningTex-hw
+	url = git@github.com:Neil-Penning/PenningTex-hw.git

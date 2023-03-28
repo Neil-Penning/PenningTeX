@@ -6,7 +6,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amsmath}
 \RequirePackage[dvipsnames]{xcolor}
-\RequirePackage{tcolorbox}
+\RequirePackage[breakable]{tcolorbox}
 \RequirePackage{physics}
 \RequirePackage{amssymb}
 
@@ -22,6 +22,7 @@
 	colback=#4!5!white,
 	colframe=#4!75!black,
 	%colupper=#4!50!black,
+    breakable,
 	fonttitle=\bfseries,
 	rounded corners = all,
 	title=#2 \thetcbcounter: #3,
